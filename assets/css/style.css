@@ -50,13 +50,18 @@
 }
 
 .description{
-    padding: 0px 10px 10px 0;
+    padding: 15px 20px;
     position: absolute;
     color: white;
     bottom: 0;
     right: 0;
+    left: 0;
     text-align: end;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+h4{
+    padding-bottom: 5px;
 }
 
 .next,

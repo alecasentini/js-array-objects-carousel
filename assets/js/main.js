@@ -26,7 +26,7 @@ let items = document.querySelector(".items");
 let thumbnails = document.querySelector(".thumbnails")
 
 for (i = 0; i < images.length; i++){
-    
+
     items.innerHTML += `
     <div class="item ${i === 0 ? 'active' : ''}">
         <img src="./assets/${images[i].image}" alt="${images[i].title}">
@@ -85,18 +85,26 @@ function activateThumbnail(thumbnailIndex) {
     // Rimuovo la classe active dalla thumbnail e dalla relativa immagine attualmente attive
     document.querySelector('.thumbnail.active').classList.remove('active');
     document.querySelector('.item.active').classList.remove('active');
-    
+
     // Aggiungo la classe active alla thumbnail e alla relativa immagine corrispondente
     const thumbnail = thumbnails.querySelectorAll('.thumbnail')[thumbnailIndex];
     const item = items.querySelectorAll('.item')[thumbnailIndex];
     thumbnail.classList.add('active');
     item.classList.add('active');
   }
-  
+
   // Aggiungo un listener di evento a ogni thumbnail
 thumbnails.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', () => {
         activateThumbnail(index);
-    });  
+    });
  });
-  
+
+// funzione per far andare avanti il carosello
+function clickNext() {
+    const nextButton = document.querySelector('.next');
+    nextButton.click();
+}
+// intervallo di x millisecondi
+setInterval(clickNext, 3000);
+
