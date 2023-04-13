@@ -44,3 +44,39 @@ for (i = 0; i < images.length; i++){
   </div>
 `;
 }
+
+let active = 0
+items.getElementsByClassName('item')[active].classList.add('active')
+thumbnails.getElementsByClassName('thumbnail')[active].classList.add('active')
+
+const prev = document.querySelector('.prev');
+
+prev.addEventListener ('click', function(){
+    if(active == 0){
+        active = images.length - 1
+    } else {
+        active--;
+    }
+
+    document.querySelector('.item.active').classList.remove('active')
+    items.getElementsByClassName('item')[active].classList.add('active')
+
+    document.querySelector('.thumbnail.active').classList.remove('active')
+    thumbnails.getElementsByClassName('thumbnail')[active].classList.add('active')
+})
+
+const next = document.querySelector('.next');
+
+next.addEventListener ('click', function(){
+    if(active == images.length - 1){
+        active = 0
+    } else {
+        active++;
+    }
+
+    document.querySelector('.item.active').classList.remove('active')
+    items.getElementsByClassName('item')[active].classList.add('active')
+
+    document.querySelector('.thumbnail.active').classList.remove('active')
+    thumbnails.getElementsByClassName('thumbnail')[active].classList.add('active')
+})
