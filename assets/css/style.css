@@ -11,6 +11,7 @@
     background-color: #3e3e42;
     justify-content: center;
     width: 100%;
+    flex-direction: column;
 }
 
 .container{
@@ -97,5 +98,14 @@
 
 .btn:hover{
     background-color: rgb(160, 154, 154);
+}
+
+.pulsanti{
+    display: flex;
+    margin-top: 10px;
+}
+
+.pulsanti div{
+    margin: 0 10px;
 }
   
