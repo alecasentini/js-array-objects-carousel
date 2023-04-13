@@ -105,6 +105,21 @@ function clickNext() {
     const nextButton = document.querySelector('.next');
     nextButton.click();
 }
-// intervallo di x millisecondi
-setInterval(clickNext, 3000);
+// Imposta l'intervallo
+let intervalID = setInterval(clickNext, 3000);
 
+// Selezione del pulsante pausa
+const pauseButton = document.querySelector('.pause');
+
+// Aggiunta listener all'evento di click sul pulsante di pausa
+pauseButton.addEventListener('click', function() {
+    clearInterval(intervalID);
+});
+
+// Selezione del pulsante play
+const playButton = document.querySelector('.play');
+
+// Aggiunta listener all'evento di click sul pulsante di play
+playButton.addEventListener('click', function(){
+    intervalID = setInterval(clickNext, 3000);
+})
