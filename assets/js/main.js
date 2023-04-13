@@ -105,21 +105,53 @@ function clickNext() {
     const nextButton = document.querySelector('.next');
     nextButton.click();
 }
+// funzione per far andare indietro il carosello
+function clickPrev() {
+    const prevButton = document.querySelector('.prev');
+    prevButton.click();
+}
+
 // Imposta l'intervallo
 let intervalID = setInterval(clickNext, 3000);
+
+// funzione per fermare l'intervallo per il pulsante "next"
+function clearNextInterval() {
+    clearInterval(intervalID);
+}
 
 // Selezione del pulsante pausa
 const pauseButton = document.querySelector('.pause');
 
-// Aggiunta listener all'evento di click sul pulsante di pausa
+// Aggiunta listener all'evento di click sul pulsante "pause"
 pauseButton.addEventListener('click', function() {
     clearInterval(intervalID);
+    clearPrevInterval()
 });
 
 // Selezione del pulsante play
 const playButton = document.querySelector('.play');
 
-// Aggiunta listener all'evento di click sul pulsante di play
+// Aggiunta listener all'evento di click sul pulsante di "play"
 playButton.addEventListener('click', function(){
     intervalID = setInterval(clickNext, 3000);
 })
+
+// imposta l'intervallo per il pulsante "prev"
+let intervalIDPrev = null;
+function startPrevInterval() {
+    intervalIDPrev = setInterval(clickPrev, 3000);
+}
+
+// funzione per fermare l'intervallo per il pulsante "prev"
+function clearPrevInterval() {
+    clearInterval(intervalIDPrev);
+}
+
+// Selezione del pulsante "rew"
+const rewButton = document.querySelector('.rew');
+
+// Aggiunta listener all'evento di click sul pulsante "rew"
+rewButton.addEventListener('click', function() {
+    clearNextInterval();
+    startPrevInterval();
+});
