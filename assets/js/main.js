@@ -80,3 +80,23 @@ next.addEventListener ('click', function(){
     document.querySelector('.thumbnail.active').classList.remove('active')
     thumbnails.getElementsByClassName('thumbnail')[active].classList.add('active')
 })
+
+function activateThumbnail(thumbnailIndex) {
+    // Rimuovo la classe active dalla thumbnail e dalla relativa immagine attualmente attive
+    document.querySelector('.thumbnail.active').classList.remove('active');
+    document.querySelector('.item.active').classList.remove('active');
+    
+    // Aggiungo la classe active alla thumbnail e alla relativa immagine corrispondente
+    const thumbnail = thumbnails.querySelectorAll('.thumbnail')[thumbnailIndex];
+    const item = items.querySelectorAll('.item')[thumbnailIndex];
+    thumbnail.classList.add('active');
+    item.classList.add('active');
+  }
+  
+  // Aggiungo un listener di evento a ogni thumbnail
+thumbnails.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        activateThumbnail(index);
+    });  
+ });
+  

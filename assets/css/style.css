@@ -120,4 +120,8 @@
 .pulsanti div{
     margin: 0 10px;
 }
-  
+
+.thumbnail:hover{
+    cursor: pointer;
+    filter: brightness(2);
+}
